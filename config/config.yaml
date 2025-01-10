@@ -1,0 +1,15 @@
+training_pipeline_config:
+  pipeline_name: networksecurity
+  artifact_dir: artifact
+
+data_ingestion_config:
+   database_name: Tamilselvan0
+   collection_name: Network_Data
+   raw_data_dir: raw_data
+   raw_data_file_name: phisingData.csv
+   ingested_data_dir: ingested_data
+   ingested_train_data_dir: train
+   ingested_test_data_dir: test
+   ingested_train_data_file_name: train.csv
+   ingested_test_data_file_name: test.csv
+   train_test_split_ratio: 0.20
