@@ -16,6 +16,7 @@ logging.basicConfig(
     datefmt='%d-%B-%Y %H:%M:%S'   
 )
 
+logging.basicConfig()
 
 # if __name__=='__main__':
 #     logging.info('Logging has been started.')

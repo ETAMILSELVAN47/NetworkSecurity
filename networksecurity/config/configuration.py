@@ -3,7 +3,7 @@ from networksecurity.logging.logger import logging
 import sys
 from networksecurity.constant import *
 from networksecurity.utils import read_yaml_file
-from networksecurity.entity.config_entity import DataIngestionConfig,TrainingPipelineConfig
+from networksecurity.entity.config_entity import DataIngestionConfig,TrainingPipelineConfig,DataValidationConfig
 
 
 
@@ -57,6 +57,45 @@ class Configuration:
                                                       ingested_test_data_file_name=ingested_test_data_file_name,
                                                       train_test_split_ratio=train_test_split_ratio)
             return data_ingestion_config
+        except Exception as e:
+            raise NetworkSecurityException(e,sys)    
+
+
+    def get_data_validation_config(self)->DataValidationConfig:
+        try:
+
+            artifact_dir=self.training_pipeline_config.artifact_dir
+            data_validation_artifact_dir=os.path.join(artifact_dir,
+                                                      DATA_VALIDATION_DIR_KEY,
+                                                      self.timestamp)
+            
+            data_validation_config=self.config_info[DATA_VALIDATION_CONFIG_KEY]
+
+            schema_file_path=os.path.join(data_validation_config[DATA_VALIDATION_SCHEMA_DIR_KEY],
+                                          data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY])
+
+            valid_data_dir=os.path.join(data_validation_artifact_dir,
+                                        data_validation_config[DATA_VALIDATION_VALID_DATA_DIR_KEY]
+                                        )
+            
+            invalid_data_dir=os.path.join(data_validation_artifact_dir,
+                                          data_validation_config[DATA_VALIDATION_INVALID_DATA_DIR_KEY]
+                                          )
+            
+            
+            
+            drift_report_file_path=os.path.join(data_validation_artifact_dir,
+                                                data_validation_config[DATA_VALIDATION_DRIFT_REPORT_DIR_KEY],
+                                                data_validation_config[DATA_VALIDATION_REPORT_FILE_NAME_KEY])
+
+
+            data_validation_config=DataValidationConfig(
+                                 schema_file_path=schema_file_path,
+                                 valid_data_dir=valid_data_dir,
+                                 invalid_data_dir=invalid_data_dir,
+                                 drift_report_file_path=drift_report_file_path)
+            
+            return data_validation_config
         except Exception as e:
             raise NetworkSecurityException(e,sys)        
         

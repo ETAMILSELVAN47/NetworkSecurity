@@ -13,3 +13,11 @@ data_ingestion_config:
    ingested_train_data_file_name: train.csv
    ingested_test_data_file_name: test.csv
    train_test_split_ratio: 0.20
+
+data_validation_config:
+   schema_dir: config
+   schema_file_name: schema.yaml
+   valid_data_dir: valid
+   invalid_data_dir: invalid
+   drift_report_dir: drift_report
+   report_file_name: report.yaml   
