@@ -4,7 +4,7 @@ import sys
 from networksecurity.constant import *
 from networksecurity.utils import read_yaml_file
 from networksecurity.entity.config_entity import DataIngestionConfig,TrainingPipelineConfig,DataValidationConfig
-
+from networksecurity.entity.config_entity import DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig,ModelPusherConfig
 
 
 class Configuration:
@@ -97,7 +97,103 @@ class Configuration:
             
             return data_validation_config
         except Exception as e:
-            raise NetworkSecurityException(e,sys)        
+            raise NetworkSecurityException(e,sys)    
+
+    def get_data_transformation_config(self)->DataTransformationConfig:
+        try:
+            artifact_dir=self.training_pipeline_config.artifact_dir
+
+            data_transformation_artifact_dir=os.path.join(artifact_dir,
+                                                          DATA_TRANSFORMATION_DIR_NAME,
+                                                          self.timestamp )
+            
+            data_transformation_config=self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
+            
+            transformed_train_dir=os.path.join(data_transformation_artifact_dir,
+                                                data_transformation_config[DATA_TRANSFORMATION_TRANSFORMED_DIR_KEY],
+                                                data_transformation_config[DATA_TRANSFORMATION_TRANSFORMED_TRAIN_DIR_KEY])
+        
+
+            transformed_test_dir=os.path.join(data_transformation_artifact_dir,
+                                              data_transformation_config[DATA_TRANSFORMATION_TRANSFORMED_DIR_KEY],
+                                              data_transformation_config[DATA_TRANSFORMATION_TRANSFORMED_TEST_DIR_KEY])
+
+            preprocessor_obj_file_path=os.path.join(data_transformation_artifact_dir,
+                                                    data_transformation_config[DATA_TRANSFORMATION_PREPROCESSOR_DIR_KEY],
+                                                    data_transformation_config[DATA_TRANSFORMATION_PREPROCESSOR_OBJ_FILE_NAME_KEY])
+            
+
+            data_transformation_config=DataTransformationConfig(transformed_train_dir=transformed_train_dir,
+                                     transformed_test_dir=transformed_test_dir,
+                                     preprocessor_obj_file_path=preprocessor_obj_file_path)
+            
+            return data_transformation_config
+
+        except Exception as e:
+            raise NetworkSecurityException(e,sys) 
+
+    def get_model_trainer_config(self)->ModelTrainerConfig:
+        try:
+            artifact_dir=self.training_pipeline_config.artifact_dir
+
+            model_trainer_artifact_dir=os.path.join(artifact_dir,
+                                                    MODEL_TRAINER_DIR_NAME,
+                                                    self.timestamp)
+            
+            model_trainer_config=self.config_info[MODEL_TRAINER_CONFIG_KEY]
+
+            trained_model_file_path=os.path.join(model_trainer_artifact_dir,
+                                                 model_trainer_config[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY],
+                                                 model_trainer_config[MODEL_TRAINER_MODEL_FILE_NAME_KEY])
+            
+            base_accuracy=model_trainer_config[MODEL_TRAINER_BASE_ACCURACY_KEY]
+
+            model_config_file_path=os.path.join(model_trainer_config[MODEL_TRAINER_MODEL_CONFIG_DIR_KEY],
+                                                model_trainer_config[MODEL_TRAINER_MODEL_CONFIG_FILE_NAME_KEY])
+
+            model_trainer_config=ModelTrainerConfig(trained_model_file_path=trained_model_file_path,
+                               base_accuracy=base_accuracy,
+                               model_config_file_path=model_config_file_path)
+            
+            return model_trainer_config
+        except Exception as e:
+            raise NetworkSecurityException(e,sys)
+
+    def get_model_evaluation_config(self)->ModelEvaluationConfig:
+        try:
+            artifact_dir=self.training_pipeline_config.artifact_dir
+
+            model_evaluation_artifact_dir=os.path.join(artifact_dir,
+                                                       MODEL_EVALUATION_DIR_NAME)
+            
+            model_evaluation_config=self.config_info[MODEL_EVALUATION_CONFIG_KEY]
+
+            model_evaluation_file_path=os.path.join(model_evaluation_artifact_dir,                                                    
+                                                    model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY])
+
+            model_evaluation_config=ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,
+                                                         timestamp=self.timestamp)
+            
+            return model_evaluation_config
+        except Exception as e:
+            raise NetworkSecurityException(e,sys)       
+
+    def get_model_pusher_config(self)->ModelPusherConfig:
+        try:
+            artifact_dir=self.training_pipeline_config.artifact_dir
+
+            model_pusher_config=self.config_info[MODEL_PUSHER_CONFIG_KEY]
+
+            model_pusher_artifact_dir=os.path.join(artifact_dir,
+                                                   MODEL_PUSHER_DIR_NAME,
+                                                   model_pusher_config[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY]                                                   
+                                                )
+            
+            model_pusher_config=ModelPusherConfig(export_model_dir_path=model_pusher_artifact_dir)
+
+            return model_pusher_config
+        except Exception as e:
+            raise NetworkSecurityException(e,sys)            
         
     def get_training_pipeline_config(self)-> TrainingPipelineConfig:
         try:

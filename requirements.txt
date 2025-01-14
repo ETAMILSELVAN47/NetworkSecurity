@@ -5,4 +5,9 @@ scikit-learn
 pyYAML
 pymongo
 certifi
-#-e .
+mlflow
+dagshub
+fastapi
+uvicorn
+python-multipart
+-e .

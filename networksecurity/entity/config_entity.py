@@ -7,6 +7,24 @@ DataIngestionConfig=namedtuple(typename="DataIngestionConfig",
 
 DataValidationConfig=namedtuple(typename="DataValidationConfig",
            field_names=["schema_file_path","valid_data_dir","invalid_data_dir","drift_report_file_path"])
+
+
+DataTransformationConfig=namedtuple(typename="DataTransformationConfig",
+           field_names=["transformed_train_dir",
+                        "transformed_test_dir",
+                        "preprocessor_obj_file_path"])
+
+ModelTrainerConfig=namedtuple(typename="ModelTrainerConfig",
+           field_names=["trained_model_file_path","base_accuracy","model_config_file_path"])
+
 TrainingPipelineConfig=namedtuple(typename="TrainingPipelineConfig",
                                   field_names=["artifact_dir"])
+
+ModelEvaluationConfig=namedtuple(typename="ModelEvaluationConfig",
+           field_names=["model_evaluation_file_path","timestamp"])
+
+
+ModelPusherConfig=namedtuple(typename="ModelPusherConfig",
+           field_names=["export_model_dir_path"])
+
 
