@@ -138,6 +138,18 @@ ENV/
 env.bak/
 venv.bak/
 
+# Custom Folders
+.prediction_output
+prediction_output/
+.logs
+logs/
+.mlruns
+mlruns/
+.Network_Data
+Network_Data/
+.prediction_output
+prediction_output/
+
 # Spyder project settings
 .spyderproject
 .spyproject
