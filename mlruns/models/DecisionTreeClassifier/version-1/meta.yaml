@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1736912135185
+current_stage: None
+description: null
+last_updated_timestamp: 1736912135185
+name: DecisionTreeClassifier
+run_id: 81a8e9e081ce4c7ca023203afc5ec942
+run_link: null
+source: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/81a8e9e081ce4c7ca023203afc5ec942/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/81a8e9e081ce4c7ca023203afc5ec942/artifacts/model
+user_id: null
+version: 1

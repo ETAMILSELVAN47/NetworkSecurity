@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1736912132875
+current_stage: None
+description: null
+last_updated_timestamp: 1736912132875
+name: LogisticRegression
+run_id: 88a19484dd3e41ea8e53d397af427cbc
+run_link: null
+source: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/88a19484dd3e41ea8e53d397af427cbc/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/88a19484dd3e41ea8e53d397af427cbc/artifacts/model
+user_id: null
+version: 1

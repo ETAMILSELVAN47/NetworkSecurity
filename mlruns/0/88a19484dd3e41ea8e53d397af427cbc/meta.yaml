@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/88a19484dd3e41ea8e53d397af427cbc/artifacts
+end_time: 1736912132936
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 88a19484dd3e41ea8e53d397af427cbc
+run_name: LogisticRegression
+run_uuid: 88a19484dd3e41ea8e53d397af427cbc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736912129316
+status: 3
+tags: []
+user_id: M1127

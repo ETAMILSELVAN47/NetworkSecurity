@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/d92333ca423e4fc8aa7495e73b46a523/artifacts
+end_time: 1736912138019
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d92333ca423e4fc8aa7495e73b46a523
+run_name: RandomForestClassifier
+run_uuid: d92333ca423e4fc8aa7495e73b46a523
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736912135655
+status: 3
+tags: []
+user_id: M1127

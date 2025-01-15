@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1736912137965
+current_stage: None
+description: null
+last_updated_timestamp: 1736912137965
+name: RandomForestClassifier
+run_id: d92333ca423e4fc8aa7495e73b46a523
+run_link: null
+source: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/d92333ca423e4fc8aa7495e73b46a523/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///D:/Oracle%20Projects/Python/project/networksecurity/mlruns/0/d92333ca423e4fc8aa7495e73b46a523/artifacts/model
+user_id: null
+version: 1
