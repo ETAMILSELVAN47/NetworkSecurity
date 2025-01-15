@@ -54,5 +54,5 @@ async def predict_route(request:Request,file:UploadFile=File(...)):
 
 
 if __name__=='__main__':
-    dagshub.init(repo_owner='ETAMILSELVAN47', repo_name='NetworkSecurity', mlflow=True)
+    # dagshub.init(repo_owner='ETAMILSELVAN47', repo_name='NetworkSecurity', mlflow=True)
     app_run(app,host="0.0.0.0",port=8080)
