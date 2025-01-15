@@ -149,10 +149,10 @@ class Pipeline:
                                         model_trainer_artifact=model_trainer_artifact)
             model_pusher_artifact=self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
             
-            logging.info(f"Sync Artifact and Final model Directory to S3 Bucket has been Started")
-            self.sync_artifact_dir_to_s3()
-            self.sync_final_model_dir_to_s3()
-            logging.info(f"Sync Artifact and Final model Directory to S3 Bucket has been Completed")
+            # logging.info(f"Sync Artifact and Final model Directory to S3 Bucket has been Started")
+            # self.sync_artifact_dir_to_s3()
+            # self.sync_final_model_dir_to_s3()
+            # logging.info(f"Sync Artifact and Final model Directory to S3 Bucket has been Completed")
             
             logging.info(f"{'<<'*10} Training Pipeline has been completed.{'>>'*10}")
         except Exception as e:
